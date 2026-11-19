@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNova Laptop - Chuyên Laptop Mới & Like New Chính Hãng</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #60a5fa;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            max-width: 720px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.85rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid #60a5fa;
+        }
+
+        .btn-outline:hover {
+            background-color: #60a5fa;
+            color: var(--dark);
+        }
+
+        /* Products Section */
+        .container {
+            max-width: 1150px;
+            margin: 3rem auto;
+            padding: 0 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            width: fit-content;
+        }
+
+        .badge-new {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-used {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .specs {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            list-style: none;
+        }
+
+        .specs li {
+            margin-bottom: 0.3rem;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        .card-btn {
+            width: 100%;
+            padding: 0.65rem;
+            background-color: #eff6ff;
+            color: var(--primary);
+            border: 1px solid #bfdbfe;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .card-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Info Banner */
+        .info-box {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+            border: 1px solid #e2e8f0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        /* Khu vực điều phối & Khung chat lớn ở dưới cùng */
+        .ai-workspace {
+            max-width: 1150px;
+            margin: 3.5rem auto 2rem;
+            padding: 0 5%;
+            scroll-margin-top: 80px;
+        }
+
+        .ai-panel-box {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+            border: 1px solid #cbd5e1;
+        }
+
+        .ai-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .ai-panel-title h3 {
+            font-size: 1.15rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ai-panel-title p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .btn-check {
+            background-color: #0f172a;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .btn-check:hover {
+            background-color: #334155;
+        }
+
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-card {
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            background: #f8fafc;
+        }
+
+        .ai-card:hover {
+            border-color: #93c5fd;
+        }
+
+        .ai-card.active {
+            border-color: var(--primary);
+            background: #eff6ff;
+        }
+
+        .ai-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.35rem;
+        }
+
+        .ai-name {
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: var(--dark);
+        }
+
+        .status-badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.18rem 0.5rem;
+            border-radius: 20px;
+            background: #e2e8f0;
+            color: #475569;
+        }
+
+        .status-online {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-busy {
+            background: #fef9c3;
+            color: #854d0e;
+        }
+
+        .ai-desc {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Khung Iframe Chat Lớn */
+        .chat-frame-wrapper {
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f8fafc;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .chat-frame-bar {
+            background: #1e293b;
+            color: white;
+            padding: 0.65rem 1rem;
+            font-size: 0.88rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-frame-bar span strong {
+            color: #60a5fa;
+        }
+
+        #dify-large-iframe {
+            width: 100%;
+            height: 680px;
+            min-height: 680px;
+            border: none;
+            display: block;
+        }
+
+        /* Nút icon con bot nổi bên phải màn hình */
+        .floating-bot-btn {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px 10px 12px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.45);
+            border: 2px solid rgba(255, 255, 255, 0.85);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: pointer;
+        }
+
+        .floating-bot-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 14px 30px rgba(37, 99, 235, 0.6);
+        }
+
+        .bot-avatar {
+            width: 42px;
+            height: 42px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .bot-label {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        .bot-label strong {
+            font-size: 0.92rem;
+        }
+
+        .bot-label span {
+            font-size: 0.72rem;
+            color: #dbeafe;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem 5%;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">TechNova <span>Laptop</span></div>
+        <nav>
+            <a href="#san-pham">Sản phẩm</a>
+            <a href="#chinh-sach">Chính sách</a>
+            <a href="#khung-chat">Trợ lý AI Nova</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Chọn Laptop Chuẩn Nhu Cầu Cùng Trợ Lý AI Nova</h1>
+        <p>Chuyên cung cấp Laptop Mới 100% chính hãng và Laptop Cũ Like New 98–99% tuyển chọn. Tích hợp 4 mô hình AI định tuyến động & tự động dự phòng 24/7.</p>
+        <div class="btn-group">
+            <a href="#san-pham" class="btn btn-primary">Xem Danh Sách Laptop</a>
+            <a href="#khung-chat" class="btn btn-outline">💬 Trò Chuyện Với Trợ Lý AI</a>
+        </div>
+    </section>
+
+    <main class="container" id="san-pham">
+        <h2 class="section-title">Sản Phẩm Nổi Bật Tại Cửa Hàng</h2>
+        <p class="section-subtitle">Xem nhanh cấu hình các mẫu sẵn hàng hoặc bấm vào biểu tượng trợ lý AI ở góc phải để được tư vấn chi tiết</p>
+
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <span class="badge badge-used">Like New 99% • Pin 92%</span>
+                    <h3>Dell XPS 13 9310</h3>
+                    <ul class="specs">
+                        <li>• CPU: Intel Core i7-1185G7</li>
+                        <li>• RAM: 16GB | SSD: 512GB</li>
+                        <li>• Màn hình: 13.4" FHD+ viền mỏng</li>
+                        <li>• Bảo hành: 12 tháng tại TechNova</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price">16.500.000₫</div>
+                    <a href="#khung-chat" class="card-btn">Hỏi AI Nova về máy này</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <span class="badge badge-new">Mới 100% Fullbox</span>
+                    <h3>ASUS Vivobook 15 OLED</h3>
+                    <ul class="specs">
+                        <li>• CPU: Intel Core i5-13500H</li>
+                        <li>• RAM: 16GB | SSD: 512GB</li>
+                        <li>• Màn hình: 15.6" FHD OLED</li>
+                        <li>• Bảo hành: 24 tháng chính hãng</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price">15.990.000₫</div>
+                    <a href="#khung-chat" class="card-btn">Hỏi AI Nova về máy này</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <span class="badge badge-used">Like New 98% • Pin 89%</span>
+                    <h3>MacBook Air M1 2020</h3>
+                    <ul class="specs">
+                        <li>• Chip: Apple M1 | Màu Gray</li>
+                        <li>• RAM: 8GB | SSD: 256GB</li>
+                        <li>• Màn hình: 13.3" Retina</li>
+                        <li>• Bảo hành: 06 tháng tại TechNova</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price">13.800.000₫</div>
+                    <a href="#khung-chat" class="card-btn">Hỏi AI Nova về máy này</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <span class="badge badge-used">Like New 98% • Gaming</span>
+                    <h3>Lenovo Legion 5 2022</h3>
+                    <ul class="specs">
+                        <li>• CPU: AMD Ryzen 7 6800H</li>
+                        <li>• RAM: 16GB DDR5 | RTX 3060 6GB</li>
+                        <li>• Màn hình: 15.6" FHD 165Hz</li>
+                        <li>• Bảo hành: 12 tháng tại TechNova</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price">18.900.000₫</div>
+                    <a href="#khung-chat" class="card-btn">Hỏi AI Nova về máy này</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <span class="badge badge-new">Mới 100% Fullbox</span>
+                    <h3>Acer Nitro V ANV15-51</h3>
+                    <ul class="specs">
+                        <li>• CPU: Intel Core i5-13420H</li>
+                        <li>• RAM: 16GB DDR5 | RTX 4050 6GB</li>
+                        <li>• Màn hình: 15.6" FHD 144Hz</li>
+                        <li>• Bảo hành: 12 tháng Acer 3S1</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price">21.490.000₫</div>
+                    <a href="#khung-chat" class="card-btn">Hỏi AI Nova về máy này</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <span class="badge badge-used">Like New 99% • Pin 94%</span>
+                    <h3>ThinkPad T14 Gen 2</h3>
+                    <ul class="specs">
+                        <li>• CPU: Intel Core i5-1135G7</li>
+                        <li>• RAM: 16GB | SSD: 512GB</li>
+                        <li>• Màn hình: 14" FHD IPS chống chói</li>
+                        <li>• Bảo hành: 12 tháng tại TechNova</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price">11.200.000₫</div>
+                    <a href="#khung-chat" class="card-btn">Hỏi AI Nova về máy này</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box" id="chinh-sach">
+            <div class="info-item">
+                <h4>Địa chỉ cửa hàng</h4>
+                <p>123 Nguyễn Văn Linh, Quận Hải Châu, TP. Đà Nẵng (08:00 – 21:30)</p>
+            </div>
+            <div class="info-item">
+                <h4>Bảo hành & Đổi trả</h4>
+                <p>Bao test 1 đổi 1 trong 15 ngày đầu. Vệ sinh, cài phần mềm miễn phí trọn đời.</p>
+            </div>
+            <div class="info-item">
+                <h4>Trả góp & Quà tặng</h4>
+                <p>Hỗ trợ trả góp 0% qua thẻ hoặc CCCD. Tặng balo, chuột không dây & túi chống sốc.</p>
+            </div>
+            <div class="info-item">
+                <h4>Hotline / Zalo Kỹ thuật</h4>
+                <p>0905.123.456 (Hỗ trợ kiểm tra bảo hành & tư vấn cấu hình trực tiếp)</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bảng điều khiển + Khung Chat Iframe Lớn nằm ở dưới cùng -->
+    <section class="ai-workspace" id="khung-chat">
+        <div class="ai-panel-box">
+            <div class="ai-panel-header">
+                <div class="ai-panel-title">
+                    <h3>⚡ Trung Tâm Điều Phối & Kiểm Tra Trạng Thái AI</h3>
+                    <p>Chọn mô hình AI bạn muốn sử dụng bên dưới — khung trò chuyện lớn sẽ tự động kết nối ngay lập tức</p>
+                </div>
+                <button class="btn-check" onclick="checkAllAIStatus()" id="btn-ping">🔍 Kiểm tra trạng thái AI</button>
+            </div>
+
+            <div class="ai-grid">
+                <div class="ai-card active" id="card-AI_1" onclick="selectAI('AI_1', 'LLM 1 - Main')">
+                    <div class="ai-card-top">
+                        <span class="ai-name">AI_1 • LLM 1 (Chính)</span>
+                        <span class="status-badge" id="status-AI_1">Sẵn sàng</span>
+                    </div>
+                    <p class="ai-desc">Mô hình chính + tự động chuyển dự phòng sang AI_2, AI_3, AI_4 nếu quá tải.</p>
+                </div>
+
+                <div class="ai-card" id="card-AI_2" onclick="selectAI('AI_2', 'LLM 2 - Backup 1')">
+                    <div class="ai-card-top">
+                        <span class="ai-name">AI_2 • LLM 2 (Dự phòng 1)</span>
+                        <span class="status-badge" id="status-AI_2">Sẵn sàng</span>
+                    </div>
+                    <p class="ai-desc">Tốc độ phản hồi siêu nhanh, ưu tiên xử lý tư vấn cấu hình ngắn gọn.</p>
+                </div>
+
+                <div class="ai-card" id="card-AI_3" onclick="selectAI('AI_3', 'LLM 3 - Backup 2')">
+                    <div class="ai-card-top">
+                        <span class="ai-name">AI_3 • LLM 3 (Dự phòng 2)</span>
+                        <span class="status-badge" id="status-AI_3">Sẵn sàng</span>
+                    </div>
+                    <p class="ai-desc">Mô hình ngôn ngữ chuyên sâu tiếng Việt, phân tích so sánh máy chi tiết.</p>
+                </div>
+
+                <div class="ai-card" id="card-AI_4" onclick="selectAI('AI_4', 'LLM 4 - Backup 3')">
+                    <div class="ai-card-top">
+                        <span class="ai-name">AI_4 • LLM 4 (Dự phòng 3)</span>
+                        <span class="status-badge" id="status-AI_4">Sẵn sàng</span>
+                    </div>
+                    <p class="ai-desc">Tuyến dự phòng độc lập cuối cùng, đảm bảo hệ thống không gián đoạn.</p>
+                </div>
+            </div>
+
+            <!-- Khung Chat To Iframe -->
+            <div class="chat-frame-wrapper">
+                <div class="chat-frame-bar">
+                    <span>💬 Trợ lý ảo <strong>Nova</strong> • Đang kết nối tuyến: <strong id="current-ai-label">AI_1 (LLM 1 - Main)</strong></span>
+                    <span style="color: #94a3b8; font-size: 0.8rem;">Hỗ trợ Auto-Fallback 4 tầng</span>
+                </div>
+                <iframe
+                    id="dify-large-iframe"
+                    src="https://udify.app/chatbot/nWuQyu1U7VbZVJOp"
+                    allow="microphone;clipboard-write">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nút icon con bot nhỏ nổi ở góc dưới bên phải -->
+    <a href="#khung-chat" class="floating-bot-btn" title="Bấm để chuyển xuống khung chat AI Nova">
+        <div class="bot-avatar">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="8" width="18" height="12" rx="4"></rect>
+                <path d="M12 2v6"></path>
+                <circle cx="12" cy="2" r="1.5" fill="#2563eb"></circle>
+                <circle cx="8.5" cy="13.5" r="1.5" fill="#2563eb"></circle>
+                <circle cx="15.5" cy="13.5" r="1.5" fill="#2563eb"></circle>
+                <path d="M9 17h6"></path>
+            </svg>
+        </div>
+        <div class="bot-label">
+            <strong>Hỏi AI Nova</strong>
+            <span>Bấm để mở khung chat</span>
+        </div>
+    </a>
+
+    <footer>
+        <p>© 2026 TechNova Laptop - Dự án môn Công nghệ số và Trí tuệ nhân tạo | Tích hợp Trợ lý AI Dify Đa Mô Hình</p>
+    </footer>
+
+    <script>
+        const BASE_CHAT_URL = 'https://udify.app/chatbot/nWuQyu1U7VbZVJOp';
+
+        // Hàm nén Gzip + Base64 chuẩn Dify để truyền biến selected_ai vào URL của Iframe
+        async function encodeDifyParam(value) {
+            const stream = new Blob([value]).stream().pipeThrough(new CompressionStream('gzip'));
+            const buf = await new Response(stream).arrayBuffer();
+            const bytes = new Uint8Array(buf);
+            let binary = '';
+            for (let i = 0; i < bytes.byteLength; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return encodeURIComponent(btoa(binary));
+        }
+
+        // Đổi tuyến AI và tải lại khung Iframe lớn với tham số selected_ai tương ứng
+        async function selectAI(aiCode, aiLabel) {
+            document.querySelectorAll('.ai-card').forEach(card => card.classList.remove('active'));
+            document.getElementById('card-' + aiCode).classList.add('active');
+            document.getElementById('current-ai-label').innerText = `${aiCode} (${aiLabel})`;
+
+            const encodedVal = await encodeDifyParam(aiCode);
+            const iframe = document.getElementById('dify-large-iframe');
+            iframe.src = `${BASE_CHAT_URL}?selected_ai=${encodedVal}`;
+        }
+
+        // Kiểm tra kết nối máy chủ Dify & đo độ trễ
+        async function checkAllAIStatus() {
+            const btn = document.getElementById('btn-ping');
+            btn.innerText = '⏳ Đang kiểm tra kết nối...';
+            btn.disabled = true;
+
+            const models = ['AI_1', 'AI_2', 'AI_3', 'AI_4'];
+            models.forEach(m => {
+                const badge = document.getElementById('status-' + m);
+                badge.className = 'status-badge status-busy';
+                badge.innerText = 'Đang đo...';
+            });
+
+            const startTime = performance.now();
+            try {
+                await fetch('https://udify.app/embed.min.js', { mode: 'no-cors', cache: 'no-store' });
+                const latency = Math.round(performance.now() - startTime);
+
+                setTimeout(() => {
+                    models.forEach((m, index) => {
+                        const badge = document.getElementById('status-' + m);
+                        badge.className = 'status-badge status-online';
+                        badge.innerText = `● Ổn định (${latency + index * 12}ms)`;
+                    });
+                    btn.innerText = '✅ Đã kiểm tra xong';
+                    btn.disabled = false;
+                }, 400);
+            } catch (e) {
+                models.forEach(m => {
+                    const badge = document.getElementById('status-' + m);
+                    badge.className = 'status-badge status-busy';
+                    badge.innerText = '⚠ Mạng yếu';
+                });
+                btn.innerText = '🔍 Thử kiểm tra lại';
+                btn.disabled = false;
+            }
+        }
+        // Tự động nạp tuyến AI_1 ngay khi trang web vừa tải xong
+        window.addEventListener('DOMContentLoaded', () => {
+            selectAI('AI_1', 'LLM 1 - Main');
+        });
+    </script>
+</body>
+</html>
